@@ -7,114 +7,104 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+    font-family: 'Poppins', sans-serif;
     
-    /* PASTE THIS PART BELOW */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                  url('../assets/PUPBG.jpg');
+    /* Using a very dark, near-black overlay to let the campus image provide the texture */
+    background-image: linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.85)), 
+                      url('../assets/PUPBG.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-/* 2. Glassmorphism Card Effect */
+/* 2. Professional Glassmorphism Card */
 .form-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 40px;
+    background: rgba(255, 255, 255, 0.03); /* Almost transparent */
+    backdrop-filter: blur(20px); /* Heavy blur for that 'iPhone' depth effect */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 48px;
     width: 100%;
-    max-width: 450px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
+    max-width: 420px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
 }
 
-.form-card:hover {
-    transform: translateY(-5px);
-}
-
-/* 3. Typography */
+/* 3. Typography - Clean & High Contrast */
 .form-card h1 {
-    color: #fff;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 1.85rem;
+    font-weight: 700;
+    margin-bottom: 8px;
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: -0.5px;
 }
 
 .form-card p {
-    color: #b0b0b0;
+    color: #94a3b8; /* Soft slate grey instead of purple */
     font-size: 0.9rem;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     text-align: center;
 }
 
 /* 4. Form Fields */
 .form-field {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 24px;
 }
 
 .form-field label {
-    color: #e0e0e0;
-    font-size: 0.85rem;
-    margin-bottom: 8px;
-    font-weight: 500;
+    color: #cbd5e1; /* Off-white for readability */
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
 }
 
-/* 5. Inputs & Select Styling */
+/* 5. Inputs & Select - Deep Dark Slate */
 .form-field input, 
 .form-field select {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 12px 15px;
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s ease;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.6); /* Deep midnight blue/black */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
 }
 
-.form-field input::placeholder {
-    color: #666;
-}
-
+/* THE ACCENT: Purple only appears on Focus */
 .form-field input:focus, 
 .form-field select:focus {
-    border-color: #4ecca3;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 8px rgba(78, 204, 163, 0.3);
+    border-color: #8b5cf6; /* Vibrant Purple Border */
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15); /* Soft purple glow */
+    outline: none;
 }
 
-/* Special styling for select options */
-.form-field select option {
-    background: #16213e;
-    color: #fff;
-}
-
-/* 6. Animated Submit Button */
+/* 6. The "Power" Button */
 .Submit-btn {
     width: 100%;
-    padding: 14px;
-    margin-top: 10px;
+    padding: 16px;
+    margin-top: 12px;
     border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #4ecca3, #45b39d);
-    color: #1a1a2e;
+    border-radius: 14px;
+    /* Clean Solid Purple with a slight depth */
+    background: #7c3aed; 
+    color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.3);
 }
 
 .Submit-btn:hover {
-    background: linear-gradient(90deg, #45b39d, #4ecca3);
-    box-shadow: 0 5px 15px rgba(78, 204, 163, 0.4);
-    transform: scale(1.02);
+    background: #6d28d2; /* Slightly darker purple on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.4);
 }
 
 .Submit-btn:active {
