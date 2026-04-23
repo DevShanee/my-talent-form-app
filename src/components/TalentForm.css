@@ -1,0 +1,117 @@
+/* TalentForm.css */
+
+/* 1. Global Reset & Background */
+.form-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Aesthetic gradient background */
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+}
+
+/* 2. Glassmorphism Card Effect */
+.form-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.form-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 3. Typography */
+.form-card h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.form-card p {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* 4. Form Fields */
+.form-field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    color: #e0e0e0;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* 5. Inputs & Select Styling */
+.form-field input, 
+.form-field select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-field input::placeholder {
+    color: #666;
+}
+
+.form-field input:focus, 
+.form-field select:focus {
+    border-color: #4ecca3;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 8px rgba(78, 204, 163, 0.3);
+}
+
+/* Special styling for select options */
+.form-field select option {
+    background: #16213e;
+    color: #fff;
+}
+
+/* 6. Animated Submit Button */
+.Submit-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #4ecca3, #45b39d);
+    color: #1a1a2e;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.Submit-btn:hover {
+    background: linear-gradient(90deg, #45b39d, #4ecca3);
+    box-shadow: 0 5px 15px rgba(78, 204, 163, 0.4);
+    transform: scale(1.02);
+}
+
+.Submit-btn:active {
+    transform: scale(0.98);
+}
