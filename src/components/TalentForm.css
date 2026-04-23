@@ -6,10 +6,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Aesthetic gradient background */
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    font-family: 'Poppins', sans-serif;
     padding: 20px;
+    
+    /* PASTE THIS PART BELOW */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                      url('../assets/PUPBG.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* 2. Glassmorphism Card Effect */
