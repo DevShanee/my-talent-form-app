@@ -9,6 +9,9 @@ const TalentForm = () => {
         Talent: "" 
     });
 
+    // Added loading state to disable button during request
+    const [loading, setLoading] = useState(false);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -17,7 +20,7 @@ const TalentForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!formData.Talent || formData.Talent === "disabled") {
@@ -25,14 +28,38 @@ const TalentForm = () => {
             return;
         }
 
-        console.log("Form Data Submitted:", formData);
+        setLoading(true);
 
-        setFormData({
-            name: "",
-            age: "",
-            email: "",
-            Talent: ""
-        });
+        try {
+            const response = await fetch("https://talentformapi.onrender.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log("Success:", result);
+                alert("Form submitted successfully!");
+                
+                // Clear form only on success
+                setFormData({
+                    name: "",
+                    age: "",
+                    email: "",
+                    Talent: ""
+                });
+            } else {
+                throw new Error("Failed to submit form");
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("There was an error connecting to the server.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -42,7 +69,6 @@ const TalentForm = () => {
                 <p> Fill out the details below if you're interested</p> 
                 <form onSubmit={handleSubmit}>
 
-                    {/* Name Input Field */}
                     <div className="form-field">
                         <label htmlFor="name"> Name </label>
                         <input
@@ -56,7 +82,6 @@ const TalentForm = () => {
                         />
                     </div>
 
-                    {/* Age Input Field */}
                     <div className="form-field">
                         <label htmlFor="age"> Age </label>
                         <input
@@ -70,7 +95,6 @@ const TalentForm = () => {
                         />
                     </div>
 
-                    {/* Email Input Field */}
                     <div className="form-field">
                         <label htmlFor="email"> Email </label>
                         <input
@@ -84,7 +108,6 @@ const TalentForm = () => {
                         />
                     </div>
 
-                    {/* Talent Input Field */}
                     <div className="form-field"> 
                         <label htmlFor="Talent"> Talent </label>
                         <select
@@ -101,8 +124,12 @@ const TalentForm = () => {
                         </select>
                     </div>
 
-                    <button type="submit" className="Submit-btn">
-                        Submit
+                    <button 
+                        type="submit" 
+                        className="Submit-btn" 
+                        disabled={loading}
+                    >
+                        {loading ? "Submitting..." : "Submit"}
                     </button>
                 </form>
             </div>
