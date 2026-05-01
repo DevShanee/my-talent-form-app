@@ -6,7 +6,7 @@ const TalentForm = () => {
         name: "",
         age: "",
         email: "",
-        Talent: "" 
+        talent: "" 
     });
 
     // Added loading state to disable button during request
@@ -23,7 +23,7 @@ const TalentForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.Talent || formData.Talent === "disabled") {
+        if (!formData.talent || formData.talent === "disabled") {
             alert("Please select a talent before Submitting!");
             return;
         }
@@ -49,7 +49,7 @@ const TalentForm = () => {
                     name: "",
                     age: "",
                     email: "",
-                    Talent: ""
+                    talent: ""
                 });
             } else {
                 throw new Error("Failed to submit form");
@@ -109,11 +109,11 @@ const TalentForm = () => {
                     </div>
 
                     <div className="form-field"> 
-                        <label htmlFor="Talent"> Talent </label>
+                        <label htmlFor="talent"> Talent </label>
                         <select
-                            id="Talent"
-                            name="Talent" 
-                            value={formData.Talent}
+                            id="talent"
+                            name="talent" 
+                            value={formData.talent}
                             onChange={handleChange}
                             required
                         >
