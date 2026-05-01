@@ -31,7 +31,7 @@ const TalentForm = () => {
         setLoading(true);
 
         try {
-            const response = await fetch("https://talentformapi.onrender.com", {
+            const response = await fetch("https://talentformapi.onrender.com/api/submit", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
